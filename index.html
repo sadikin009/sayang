@@ -499,27 +499,40 @@ posisi=750;
 
 
 // kirim jawaban
+function kirimWA(){
+
+let jawaban = document.getElementById("jawaban").value;
 
 
-function kirim(){
+if(jawaban==""){
 
-
-let j=document.getElementById("jawaban").value;
-
-
-if(j==""){
-
-alert("Isi pesan dulu ❤️");
+alert("Tulis jawaban dulu ❤️");
 
 return;
 
 }
 
 
-document.getElementById("hasil").innerHTML=
+// GANTI NOMOR INI DENGAN NOMOR WHATSAPP ANDA
+let nomor = "6281274365441";
 
-"Pesan kamu ❤️<br>"+j;
 
+// pesan yang dikirim
+let pesan = 
+"Halo ❤️%0A%0A"+
+"Aku mendapat pesan dari "+nama+"%0A%0A"+
+"Jawabannya:%0A"+
+jawaban+
+"%0A%0ATerima kasih ❤️";
+
+
+// buka WhatsApp
+
+let url =
+"https://wa.me/"+nomor+"?text="+pesan;
+
+
+window.open(url,"_blank");
 
 
 }
