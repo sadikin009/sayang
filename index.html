@@ -17,19 +17,13 @@ font-family:Arial;
 body{
 
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 background:linear-gradient(135deg,#ff416c,#ff4b2b);
-
 overflow:hidden;
 
 }
-
 
 
 /* LOGIN */
@@ -37,67 +31,46 @@ overflow:hidden;
 #login{
 
 background:white;
-
 padding:40px;
-
 border-radius:30px;
-
 text-align:center;
-
 box-shadow:0 0 40px white;
 
 }
 
 
-
 h1{
 
 color:#ff416c;
-
 font-size:35px;
 
 }
 
 
-
 input,textarea{
 
 padding:15px;
-
 width:300px;
-
 border-radius:30px;
-
 border:2px solid pink;
-
 font-size:18px;
-
 text-align:center;
 
 }
 
 
-
 button{
 
 margin-top:20px;
-
 padding:15px 35px;
-
 border:none;
-
 border-radius:30px;
-
 background:#ff416c;
-
 color:white;
-
 font-size:18px;
-
 cursor:pointer;
 
 }
-
 
 
 button:hover{
@@ -114,9 +87,7 @@ background:#ff1744;
 #lovePage{
 
 display:none;
-
 color:white;
-
 text-align:center;
 
 }
@@ -126,13 +97,9 @@ text-align:center;
 .card{
 
 width:750px;
-
 padding:40px;
-
 background:rgba(255,255,255,.2);
-
 backdrop-filter:blur(15px);
-
 border-radius:30px;
 
 }
@@ -142,13 +109,9 @@ border-radius:30px;
 img{
 
 width:150px;
-
 height:150px;
-
 border-radius:50%;
-
 object-fit:cover;
-
 border:5px solid white;
 
 }
@@ -158,9 +121,7 @@ border:5px solid white;
 #pesan{
 
 font-size:22px;
-
 margin:20px;
-
 line-height:1.5;
 
 }
@@ -173,13 +134,9 @@ line-height:1.5;
 .container{
 
 background:black;
-
 height:60px;
-
 border-radius:30px;
-
 overflow:hidden;
-
 padding:10px;
 
 }
@@ -189,15 +146,10 @@ padding:10px;
 #running{
 
 color:yellow;
-
 font-size:30px;
-
 font-weight:bold;
-
 white-space:nowrap;
-
 position:relative;
-
 text-shadow:0 0 15px yellow;
 
 }
@@ -210,9 +162,7 @@ text-shadow:0 0 15px yellow;
 textarea{
 
 height:100px;
-
 resize:none;
-
 margin-top:20px;
 
 }
@@ -222,14 +172,13 @@ margin-top:20px;
 #hasil{
 
 margin-top:20px;
-
 font-size:22px;
 
 }
 
 
 
-/* tombol jawaban */
+/* tombol tidak */
 
 
 #tidak{
@@ -246,9 +195,7 @@ position:absolute;
 .heart{
 
 position:absolute;
-
 font-size:25px;
-
 animation:jatuh 6s linear infinite;
 
 }
@@ -272,16 +219,16 @@ transform:translateY(100vh);
 }
 
 
-/* diterima */
+
+/* TERIMA */
 
 
 #terima{
 
 display:none;
-
 font-size:50px;
-
 color:white;
+text-align:center;
 
 }
 
@@ -294,6 +241,7 @@ color:white;
 <body>
 
 
+
 <!-- LOGIN -->
 
 
@@ -304,7 +252,6 @@ color:white;
 
 
 <p>Masukkan nama kamu</p>
-
 
 <br>
 
@@ -323,6 +270,7 @@ Buka Pesan 💌
 
 
 </div>
+
 
 
 
@@ -358,15 +306,17 @@ Aku punya sesuatu untuk kamu ❤️
 
 
 
+
 <textarea id="jawaban"
 placeholder="Tulis jawaban kamu...">
 </textarea>
 
 
+
 <br>
 
 
-<button onclick="kirim()">
+<button onclick="kirimWA()">
 
 Kirim Pesan 💌
 
@@ -377,12 +327,12 @@ Kirim Pesan 💌
 <br>
 
 
-
 <button onclick="yes()">
 
-Mau ❤️
+💖 Aku Mau 💖
 
 </button>
+
 
 
 <button id="tidak" onclick="no()">
@@ -402,6 +352,8 @@ Tidak 😢
 
 
 
+
+
 <div id="terima">
 
 💖 Aku Senang Sekali 💖
@@ -410,11 +362,14 @@ Tidak 😢
 
 
 
+
+
 <audio id="musik" loop>
 
-<source src="musik.mp3">
+<source src="musik.mp3" type="audio/mp3">
 
 </audio>
+
 
 
 
@@ -424,6 +379,9 @@ Tidak 😢
 
 let nama;
 
+
+
+// mulai
 
 
 function mulai(){
@@ -441,7 +399,9 @@ return;
 }
 
 
+
 document.getElementById("musik").play();
+
 
 
 document.getElementById("login").style.display="none";
@@ -459,9 +419,9 @@ document.getElementById("judul").innerHTML=
 
 document.getElementById("pesan").innerHTML=
 
-"Sejak mengenal kamu, aku merasa hari-hariku menjadi lebih indah. <br><br>"+
+"Sejak mengenal kamu, aku merasa hari-hariku menjadi lebih indah. ❤️<br><br>"+
 
-"Aku ingin selalu ada untuk kamu, menemani kamu, dan membuat kamu tersenyum. ❤️ <br><br>"+
+"Aku ingin selalu ada untuk kamu, menemani kamu, dan membuat kamu tersenyum. <br><br>"+
 
 "Apakah kamu mau menjadi seseorang yang spesial dalam hidupku? 💖";
 
@@ -469,11 +429,10 @@ document.getElementById("pesan").innerHTML=
 
 
 
-// running text
+// RUNNING TEXT
 
 
 let posisi=750;
-
 
 let text=document.getElementById("running");
 
@@ -483,13 +442,14 @@ setInterval(()=>{
 
 posisi--;
 
-
 text.style.left=posisi+"px";
 
 
-if(posisi < -text.offsetWidth)
+if(posisi < -text.offsetWidth){
 
 posisi=750;
+
+}
 
 
 },10);
@@ -498,10 +458,15 @@ posisi=750;
 
 
 
-// kirim jawaban
+
+// KIRIM FORM KE WA
+
+
 function kirimWA(){
 
-let jawaban = document.getElementById("jawaban").value;
+
+let jawaban=document.getElementById("jawaban").value;
+
 
 
 if(jawaban==""){
@@ -513,23 +478,27 @@ return;
 }
 
 
-// GANTI NOMOR INI DENGAN NOMOR WHATSAPP ANDA
-let nomor = "6281274365441";
+
+let nomor="6281274365441";
 
 
-// pesan yang dikirim
-let pesan = 
+
+let pesan=
+
 "Halo ❤️%0A%0A"+
-"Aku mendapat pesan dari "+nama+"%0A%0A"+
-"Jawabannya:%0A"+
-jawaban+
-"%0A%0ATerima kasih ❤️";
+
+"Aku mendapat pesan dari "+nama+" ❤️%0A%0A"+
+
+"Jawaban:%0A"+
+
+jawaban;
 
 
-// buka WhatsApp
 
-let url =
+let url=
+
 "https://wa.me/"+nomor+"?text="+pesan;
+
 
 
 window.open(url,"_blank");
@@ -540,10 +509,44 @@ window.open(url,"_blank");
 
 
 
-// tombol mau
+
+// TOMBOL MAU
 
 
 function yes(){
+
+
+let nomor="6281274365441";
+
+
+let jawaban=document.getElementById("jawaban").value;
+
+
+
+let pesan=
+
+"Halo ❤️%0A%0A"+
+
+"Aku mendapat jawaban dari "+nama+" ❤️%0A%0A"+
+
+(jawaban==""?
+
+"Aku mau menerima kamu ❤️":
+
+"Jawaban: "+jawaban)+
+
+"%0A%0ATerima kasih 💖";
+
+
+
+let url=
+
+"https://wa.me/"+nomor+"?text="+pesan;
+
+
+
+window.open(url,"_blank");
+
 
 
 document.getElementById("lovePage").style.display="none";
@@ -570,14 +573,10 @@ function no(){
 let tombol=document.getElementById("tidak");
 
 
-tombol.style.left=
-
-Math.random()*80+"%";
+tombol.style.left=Math.random()*80+"%";
 
 
-tombol.style.top=
-
-Math.random()*80+"%";
+tombol.style.top=Math.random()*80+"%";
 
 
 }
@@ -586,7 +585,7 @@ Math.random()*80+"%";
 
 
 
-// efek hati
+// hati jatuh
 
 
 setInterval(()=>{
@@ -609,7 +608,6 @@ h.style.animationDuration=
 3+Math.random()*5+"s";
 
 
-
 document.body.appendChild(h);
 
 
@@ -628,7 +626,8 @@ h.remove();
 
 
 
-// kembang api sederhana
+
+// efek kembang api
 
 
 function confetti(){
@@ -658,6 +657,7 @@ c.style.fontSize="30px";
 document.body.appendChild(c);
 
 
+
 setTimeout(()=>{
 
 c.remove();
@@ -665,8 +665,8 @@ c.remove();
 },3000);
 
 
-}
 
+}
 
 }
 
