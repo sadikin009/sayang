@@ -243,7 +243,7 @@ Buka Pesan 💌
 <div class="card">
 
 
-<img src="foto.jpg">
+<img src="foto.jpeg">
 
 
 <h1 id="judul"></h1>
@@ -283,7 +283,9 @@ Kirim Pesan 💌
 💖 Aku Mau 💖
 </button>
 
-
+<button onclick="musikControl()">
+🎵 Musik ON/OFF
+</button>
 
 <button id="tidak" onclick="no()">
 Tidak 😢
@@ -330,7 +332,37 @@ let nama="";
 let nomorWA="6281274365441";
 
 
+let musikAktif = true;
 
+
+function musikControl(){
+
+let musik=document.getElementById("musik");
+
+
+if(musikAktif){
+
+musik.pause();
+
+musikAktif=false;
+
+alert("Musik dimatikan 🔇");
+
+
+}else{
+
+
+musik.play();
+
+musikAktif=true;
+
+alert("Musik dinyalakan 🎵");
+
+
+}
+
+
+}
 
 // MULAI
 
@@ -364,10 +396,13 @@ document.getElementById("lovePage").style.display="block";
 
 
 
+let waktu = new Date();
+
+
 document.getElementById("judul").innerHTML=
 
-"Untuk "+nama+" ❤️";
-
+"Untuk "+nama+" ❤️<br>"+
+"<small>Dibuka pada "+waktu.toLocaleString()+"</small>";
 
 
 document.getElementById("pesan").innerHTML=
