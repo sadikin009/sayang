@@ -1,164 +1,287 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>For Someone Special ❤️</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
+
 
 body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ff416c,#ff4b2b);
-    overflow:hidden;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#ff416c,#ff4b2b);
+
+overflow:hidden;
+
 }
 
 
-/* halaman nama */
+
+/* LOGIN */
 
 #login{
 
-    text-align:center;
-    background:white;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 0 30px white;
+background:white;
+
+padding:40px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 0 40px white;
 
 }
 
-
-#login h1{
-
-    color:#ff416c;
-    margin-bottom:20px;
-
-}
-
-
-input{
-
-    padding:15px;
-    width:300px;
-    border-radius:30px;
-    border:2px solid pink;
-    font-size:18px;
-    text-align:center;
-
-}
-
-
-button{
-
-    margin-top:20px;
-    padding:15px 35px;
-    border:none;
-    border-radius:30px;
-    background:#ff416c;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-
-}
-
-
-button:hover{
-
-    background:#ff1744;
-
-}
-
-
-
-/* halaman cinta */
-
-#lovePage{
-
-    display:none;
-    text-align:center;
-    color:white;
-
-}
-
-
-.card{
-
-    width:700px;
-    padding:40px;
-    background:rgba(255,255,255,0.2);
-    backdrop-filter:blur(10px);
-    border-radius:30px;
-}
 
 
 h1{
 
-    font-size:40px;
-    text-shadow:0 0 20px white;
+color:#ff416c;
+
+font-size:35px;
 
 }
 
 
-p{
 
-    font-size:22px;
-    margin:25px;
+input,textarea{
+
+padding:15px;
+
+width:300px;
+
+border-radius:30px;
+
+border:2px solid pink;
+
+font-size:18px;
+
+text-align:center;
 
 }
 
+
+
+button{
+
+margin-top:20px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff416c;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+background:#ff1744;
+
+}
+
+
+
+/* HALAMAN CINTA */
+
+
+#lovePage{
+
+display:none;
+
+color:white;
+
+text-align:center;
+
+}
+
+
+
+.card{
+
+width:750px;
+
+padding:40px;
+
+background:rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+border-radius:30px;
+
+}
+
+
+
+img{
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid white;
+
+}
+
+
+
+#pesan{
+
+font-size:22px;
+
+margin:20px;
+
+line-height:1.5;
+
+}
+
+
+
+/* RUNNING TEXT */
 
 
 .container{
 
-    background:black;
-    height:60px;
-    border-radius:30px;
-    overflow:hidden;
-    padding:12px;
+background:black;
+
+height:60px;
+
+border-radius:30px;
+
+overflow:hidden;
+
+padding:10px;
 
 }
+
 
 
 #running{
 
-    color:yellow;
-    font-size:30px;
-    white-space:nowrap;
-    position:relative;
-    font-weight:bold;
+color:yellow;
+
+font-size:30px;
+
+font-weight:bold;
+
+white-space:nowrap;
+
+position:relative;
+
+text-shadow:0 0 15px yellow;
 
 }
 
 
 
-/* hati */
+/* FORM */
+
+
+textarea{
+
+height:100px;
+
+resize:none;
+
+margin-top:20px;
+
+}
+
+
+
+#hasil{
+
+margin-top:20px;
+
+font-size:22px;
+
+}
+
+
+
+/* tombol jawaban */
+
+
+#tidak{
+
+position:absolute;
+
+}
+
+
+
+/* HATI */
+
 
 .heart{
 
 position:absolute;
-color:white;
+
 font-size:25px;
+
 animation:jatuh 6s linear infinite;
 
 }
 
 
+
 @keyframes jatuh{
 
 from{
+
 transform:translateY(-100px);
+
 }
 
 to{
+
 transform:translateY(100vh);
+
 }
+
+}
+
+
+/* diterima */
+
+
+#terima{
+
+display:none;
+
+font-size:50px;
+
+color:white;
 
 }
 
@@ -171,20 +294,31 @@ transform:translateY(100vh);
 <body>
 
 
-<!-- Masukkan nama -->
+<!-- LOGIN -->
+
 
 <div id="login">
 
+
 <h1>❤️ Untuk Kamu ❤️</h1>
 
-<p>Masukkan nama kamu dulu</p>
 
-<input id="nama" placeholder="Nama kamu...">
+<p>Masukkan nama kamu</p>
+
 
 <br>
 
+
+<input id="nama" placeholder="Nama kamu">
+
+
+<br>
+
+
 <button onclick="mulai()">
+
 Buka Pesan 💌
+
 </button>
 
 
@@ -192,7 +326,8 @@ Buka Pesan 💌
 
 
 
-<!-- halaman cinta -->
+
+<!-- LOVE PAGE -->
 
 
 <div id="lovePage">
@@ -201,61 +336,132 @@ Buka Pesan 💌
 <div class="card">
 
 
+<img src="foto.jpg">
+
+
 <h1 id="judul"></h1>
 
 
 <p id="pesan"></p>
 
 
+
 <div class="container">
 
 <div id="running">
-Aku punya sesuatu yang ingin aku sampaikan ❤️
-</div>
 
-</div>
-
+Aku punya sesuatu untuk kamu ❤️
 
 </div>
 
 </div>
+
+
+
+<textarea id="jawaban"
+placeholder="Tulis jawaban kamu...">
+</textarea>
+
+
+<br>
+
+
+<button onclick="kirim()">
+
+Kirim Pesan 💌
+
+</button>
+
+
+
+<br>
+
+
+
+<button onclick="yes()">
+
+Mau ❤️
+
+</button>
+
+
+<button id="tidak" onclick="no()">
+
+Tidak 😢
+
+</button>
+
+
+
+<p id="hasil"></p>
+
+
+</div>
+
+</div>
+
+
+
+<div id="terima">
+
+💖 Aku Senang Sekali 💖
+
+</div>
+
+
+
+<audio id="musik" loop>
+
+<source src="musik.mp3">
+
+</audio>
+
 
 
 
 <script>
 
 
+let nama;
+
+
+
 function mulai(){
 
 
-let nama=document.getElementById("nama").value;
+nama=document.getElementById("nama").value;
 
 
 if(nama==""){
 
-alert("Masukkan nama terlebih dahulu ❤️");
+alert("Masukkan nama dulu ❤️");
 
 return;
 
 }
 
 
+document.getElementById("musik").play();
+
+
 document.getElementById("login").style.display="none";
+
 
 document.getElementById("lovePage").style.display="block";
 
 
 
 document.getElementById("judul").innerHTML=
+
 "Untuk "+nama+" ❤️";
+
 
 
 document.getElementById("pesan").innerHTML=
 
-"Sejak mengenal kamu, aku merasa ada sesuatu yang berbeda. "+
-"Kamu membuat hari-hariku menjadi lebih indah. "+
-"Aku tidak tahu bagaimana masa depan nanti, "+
-"tapi aku ingin menjalaninya bersama kamu. ❤️ <br><br>"+
+"Sejak mengenal kamu, aku merasa hari-hariku menjadi lebih indah. <br><br>"+
+
+"Aku ingin selalu ada untuk kamu, menemani kamu, dan membuat kamu tersenyum. ❤️ <br><br>"+
 
 "Apakah kamu mau menjadi seseorang yang spesial dalam hidupku? 💖";
 
@@ -266,9 +472,10 @@ document.getElementById("pesan").innerHTML=
 // running text
 
 
-let text=document.getElementById("running");
+let posisi=750;
 
-let posisi=700;
+
+let text=document.getElementById("running");
 
 
 setInterval(()=>{
@@ -276,21 +483,97 @@ setInterval(()=>{
 
 posisi--;
 
+
 text.style.left=posisi+"px";
 
 
-if(posisi < -text.offsetWidth){
+if(posisi < -text.offsetWidth)
 
-posisi=700;
-
-}
+posisi=750;
 
 
 },10);
 
 
 
-// hati bergerak
+
+
+// kirim jawaban
+
+
+function kirim(){
+
+
+let j=document.getElementById("jawaban").value;
+
+
+if(j==""){
+
+alert("Isi pesan dulu ❤️");
+
+return;
+
+}
+
+
+document.getElementById("hasil").innerHTML=
+
+"Pesan kamu ❤️<br>"+j;
+
+
+
+}
+
+
+
+
+// tombol mau
+
+
+function yes(){
+
+
+document.getElementById("lovePage").style.display="none";
+
+
+document.getElementById("terima").style.display="block";
+
+
+confetti();
+
+
+}
+
+
+
+
+
+// tombol tidak kabur
+
+
+function no(){
+
+
+let tombol=document.getElementById("tidak");
+
+
+tombol.style.left=
+
+Math.random()*80+"%";
+
+
+tombol.style.top=
+
+Math.random()*80+"%";
+
+
+}
+
+
+
+
+
+// efek hati
 
 
 setInterval(()=>{
@@ -298,17 +581,24 @@ setInterval(()=>{
 
 let h=document.createElement("div");
 
+
 h.className="heart";
+
 
 h.innerHTML="❤️";
 
+
 h.style.left=Math.random()*100+"%";
 
+
 h.style.animationDuration=
-(3+Math.random()*5)+"s";
+
+3+Math.random()*5+"s";
+
 
 
 document.body.appendChild(h);
+
 
 
 setTimeout(()=>{
@@ -320,6 +610,52 @@ h.remove();
 
 
 },500);
+
+
+
+
+
+// kembang api sederhana
+
+
+function confetti(){
+
+
+for(let i=0;i<100;i++){
+
+
+let c=document.createElement("div");
+
+
+c.innerHTML="🎉";
+
+
+c.style.position="absolute";
+
+
+c.style.left=Math.random()*100+"%";
+
+
+c.style.top=Math.random()*100+"%";
+
+
+c.style.fontSize="30px";
+
+
+document.body.appendChild(c);
+
+
+setTimeout(()=>{
+
+c.remove();
+
+},3000);
+
+
+}
+
+
+}
 
 
 
