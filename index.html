@@ -515,51 +515,29 @@ window.open(url,"_blank");
 
 function yes(){
 
-
-let nomor="6281274365441";
-
-
-let jawaban=document.getElementById("jawaban").value;
+    let nomor = "6281274365441"; 
+    // Pastikan nomor memakai kode negara 62
 
 
-
-let pesan=
-
-"Halo ❤️%0A%0A"+
-
-"Aku mendapat jawaban dari "+nama+" ❤️%0A%0A"+
-
-(jawaban==""?
-
-"Aku mau menerima kamu ❤️":
-
-"Jawaban: "+jawaban)+
-
-"%0A%0ATerima kasih 💖";
+    let jawaban = document.getElementById("jawaban").value;
 
 
-
-let url=
-
-"https://wa.me/"+nomor+"?text="+pesan;
-
-
-
-window.open(url,"_blank");
+    let pesan = 
+    "Halo ❤️\n\n" +
+    "Ada jawaban dari " + nama + " ❤️\n\n" +
+    "Status: AKU MAU ❤️\n\n" +
+    "Pesan dia:\n" +
+    (jawaban || "Aku mau menerima kamu ❤️");
 
 
-
-document.getElementById("lovePage").style.display="none";
-
-
-document.getElementById("terima").style.display="block";
+    // encode pesan agar terbaca WhatsApp
+    let url = 
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
 
 
-confetti();
-
+    window.location.href = url;
 
 }
-
 
 
 
