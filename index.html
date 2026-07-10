@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Running Text JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        .container {
+            width: 600px;
+            height: 60px;
+            background: black;
+            color: yellow;
+            overflow: hidden;
+            margin: 100px auto;
+            padding: 10px;
+            font-size: 30px;
+        }
+
+        #running {
+            white-space: nowrap;
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div id="running">
+        I love You Sayangkuu Tirta
+    </div>
+</div>
+
+
+<script>
+
+let text = document.getElementById("running");
+
+let posisi = 600;
+
+function jalan() {
+
+    posisi--;
+
+    text.style.left = posisi + "px";
+
+    if (posisi < -text.offsetWidth) {
+        posisi = 600;
+    }
+
+}
+
+setInterval(jalan, 10);
+
+</script>
+
+
+</body>
+</html>
