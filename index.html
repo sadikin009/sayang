@@ -10,19 +10,16 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
-
 body{
-
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#ff416c,#ff4b2b);
 overflow:hidden;
-
 }
 
 
@@ -81,8 +78,7 @@ background:#ff1744;
 
 
 
-/* HALAMAN CINTA */
-
+/* LOVE PAGE */
 
 #lovePage{
 
@@ -91,7 +87,6 @@ color:white;
 text-align:center;
 
 }
-
 
 
 .card{
@@ -105,7 +100,6 @@ border-radius:30px;
 }
 
 
-
 img{
 
 width:150px;
@@ -115,7 +109,6 @@ object-fit:cover;
 border:5px solid white;
 
 }
-
 
 
 #pesan{
@@ -128,8 +121,7 @@ line-height:1.5;
 
 
 
-/* RUNNING TEXT */
-
+/* RUNNING */
 
 .container{
 
@@ -140,7 +132,6 @@ overflow:hidden;
 padding:10px;
 
 }
-
 
 
 #running{
@@ -156,8 +147,7 @@ text-shadow:0 0 15px yellow;
 
 
 
-/* FORM */
-
+/* TEXT AREA */
 
 textarea{
 
@@ -169,28 +159,16 @@ margin-top:20px;
 
 
 
-#hasil{
-
-margin-top:20px;
-font-size:22px;
-
-}
-
-
-
-/* tombol tidak */
-
+/* TOMBOL TIDAK */
 
 #tidak{
 
 position:absolute;
-
 }
 
 
 
 /* HATI */
-
 
 .heart{
 
@@ -199,7 +177,6 @@ font-size:25px;
 animation:jatuh 6s linear infinite;
 
 }
-
 
 
 @keyframes jatuh{
@@ -219,9 +196,7 @@ transform:translateY(100vh);
 }
 
 
-
 /* TERIMA */
-
 
 #terima{
 
@@ -232,7 +207,6 @@ text-align:center;
 
 }
 
-
 </style>
 
 </head>
@@ -240,46 +214,31 @@ text-align:center;
 
 <body>
 
-
-
-<!-- LOGIN -->
-
+    <!-- HALAMAN LOGIN -->
 
 <div id="login">
 
-
 <h1>❤️ Untuk Kamu ❤️</h1>
-
 
 <p>Masukkan nama kamu</p>
 
 <br>
 
-
 <input id="nama" placeholder="Nama kamu">
-
 
 <br>
 
-
 <button onclick="mulai()">
-
 Buka Pesan 💌
-
 </button>
-
 
 </div>
 
 
 
-
-
-<!-- LOVE PAGE -->
-
+<!-- HALAMAN CINTA -->
 
 <div id="lovePage">
-
 
 <div class="card">
 
@@ -297,19 +256,15 @@ Buka Pesan 💌
 <div class="container">
 
 <div id="running">
-
 Aku punya sesuatu untuk kamu ❤️
-
 </div>
 
 </div>
 
 
 
-
-<textarea id="jawaban"
-placeholder="Tulis jawaban kamu...">
-</textarea>
+<textarea id="jawaban" 
+placeholder="Tulis jawaban kamu..."></textarea>
 
 
 
@@ -317,28 +272,21 @@ placeholder="Tulis jawaban kamu...">
 
 
 <button onclick="kirimWA()">
-
 Kirim Pesan 💌
-
 </button>
-
 
 
 <br>
 
 
 <button onclick="yes()">
-
 💖 Aku Mau 💖
-
 </button>
 
 
 
 <button id="tidak" onclick="no()">
-
 Tidak 😢
-
 </button>
 
 
@@ -352,15 +300,11 @@ Tidak 😢
 
 
 
-
-
 <div id="terima">
 
 💖 Aku Senang Sekali 💖
 
 </div>
-
-
 
 
 
@@ -377,11 +321,18 @@ Tidak 😢
 <script>
 
 
-let nama;
+let nama="";
 
 
 
-// mulai
+// NOMOR WHATSAPP TUJUAN
+
+let nomorWA="6281274365441";
+
+
+
+
+// MULAI
 
 
 function mulai(){
@@ -400,7 +351,9 @@ return;
 
 
 
-document.getElementById("musik").play();
+let musik=document.getElementById("musik");
+
+musik.play();
 
 
 
@@ -419,13 +372,17 @@ document.getElementById("judul").innerHTML=
 
 document.getElementById("pesan").innerHTML=
 
-"Sejak mengenal kamu, aku merasa hari-hariku menjadi lebih indah. ❤️<br><br>"+
+"Sejak mengenal kamu, aku merasa ada sesuatu yang berbeda. ❤️<br><br>"+
 
-"Aku ingin selalu ada untuk kamu, menemani kamu, dan membuat kamu tersenyum. <br><br>"+
+"Kamu membuat hari-hariku menjadi lebih indah. "+
+
+"Aku ingin selalu ada untuk kamu dan membuat kamu tersenyum. ❤️<br><br>"+
 
 "Apakah kamu mau menjadi seseorang yang spesial dalam hidupku? 💖";
 
+
 }
+
 
 
 
@@ -442,7 +399,9 @@ setInterval(()=>{
 
 posisi--;
 
+
 text.style.left=posisi+"px";
+
 
 
 if(posisi < -text.offsetWidth){
@@ -459,13 +418,15 @@ posisi=750;
 
 
 
-// KIRIM FORM KE WA
+// KIRIM PESAN WA
 
 
 function kirimWA(){
 
 
-let jawaban=document.getElementById("jawaban").value;
+let jawaban=
+
+document.getElementById("jawaban").value;
 
 
 
@@ -479,17 +440,13 @@ return;
 
 
 
-let nomor="6281274365441";
+let pesanWA=
 
+"Halo ❤️\n\n"+
 
+"Aku mendapat pesan dari "+nama+" ❤️\n\n"+
 
-let pesan=
-
-"Halo ❤️%0A%0A"+
-
-"Aku mendapat pesan dari "+nama+" ❤️%0A%0A"+
-
-"Jawaban:%0A"+
+"Isi pesan:\n"+
 
 jawaban;
 
@@ -497,7 +454,9 @@ jawaban;
 
 let url=
 
-"https://wa.me/"+nomor+"?text="+pesan;
+"https://wa.me/"+nomorWA+
+
+"?text="+encodeURIComponent(pesanWA);
 
 
 
@@ -510,39 +469,68 @@ window.open(url,"_blank");
 
 
 
-// TOMBOL MAU
+
+
+// TOMBOL AKU MAU
 
 
 function yes(){
 
-    let nomor = "6281274365441"; 
-    // Pastikan nomor memakai kode negara 62
 
 
-    let jawaban = document.getElementById("jawaban").value;
+let jawaban=
+
+document.getElementById("jawaban").value;
 
 
-    let pesan = 
-    "Halo ❤️\n\n" +
-    "Ada jawaban dari " + nama + " ❤️\n\n" +
-    "Status: AKU MAU ❤️\n\n" +
-    "Pesan dia:\n" +
-    (jawaban || "Aku mau menerima kamu ❤️");
+
+let pesanWA=
+
+"Halo ❤️\n\n"+
+
+"Aku mendapat jawaban dari "+nama+" ❤️\n\n"+
+
+"Status: AKU MAU 💖\n\n"+
+
+"Pesan:\n"+
+
+(jawaban==""?
+
+"Aku mau menerima kamu ❤️":
+
+jawaban);
 
 
-    // encode pesan agar terbaca WhatsApp
-    let url = 
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+
+let url=
+
+"https://wa.me/"+nomorWA+
+
+"?text="+encodeURIComponent(pesanWA);
 
 
-    window.location.href = url;
+
+window.open(url,"_blank");
+
+
+
+document.getElementById("lovePage").style.display="none";
+
+
+document.getElementById("terima").style.display="block";
+
+
+confetti();
+
 
 }
 
 
 
 
-// tombol tidak kabur
+
+
+// TOMBOL TIDAK KABUR
 
 
 function no(){
@@ -551,10 +539,14 @@ function no(){
 let tombol=document.getElementById("tidak");
 
 
-tombol.style.left=Math.random()*80+"%";
+tombol.style.left=
+
+Math.random()*80+"%";
 
 
-tombol.style.top=Math.random()*80+"%";
+tombol.style.top=
+
+Math.random()*80+"%";
 
 
 }
@@ -563,7 +555,9 @@ tombol.style.top=Math.random()*80+"%";
 
 
 
-// hati jatuh
+
+
+// ANIMASI HATI
 
 
 setInterval(()=>{
@@ -583,7 +577,8 @@ h.style.left=Math.random()*100+"%";
 
 h.style.animationDuration=
 
-3+Math.random()*5+"s";
+(3+Math.random()*5)+"s";
+
 
 
 document.body.appendChild(h);
@@ -605,7 +600,8 @@ h.remove();
 
 
 
-// efek kembang api
+
+// KEMBANG API
 
 
 function confetti(){
@@ -643,8 +639,8 @@ c.remove();
 },3000);
 
 
-
 }
+
 
 }
 
@@ -654,4 +650,5 @@ c.remove();
 
 
 </body>
+
 </html>
