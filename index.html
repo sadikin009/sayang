@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <title>For Someone Special ❤️</title>
-
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
-
 body{
 height:100vh;
 display:flex;
@@ -21,43 +17,27 @@ align-items:center;
 background:linear-gradient(135deg,#ff416c,#ff4b2b);
 overflow:hidden;
 }
-
-
 /* LOGIN */
-
 #login{
-
 background:white;
 padding:40px;
 border-radius:30px;
 text-align:center;
 box-shadow:0 0 40px white;
-
 }
-
-
 h1{
-
 color:#ff416c;
 font-size:35px;
-
 }
-
-
 input,textarea{
-
 padding:15px;
 width:300px;
 border-radius:30px;
 border:2px solid pink;
 font-size:18px;
 text-align:center;
-
 }
-
-
 button{
-
 margin-top:20px;
 padding:15px 35px;
 border:none;
@@ -66,77 +46,61 @@ background:#ff416c;
 color:white;
 font-size:18px;
 cursor:pointer;
-
 }
-
-
 button:hover{
-
 background:#ff1744;
-
 }
-
-
-
 /* LOVE PAGE */
-
 #lovePage{
-
 display:none;
 color:white;
 text-align:center;
-
 }
-
-
 .card{
-
 width:750px;
 padding:40px;
 background:rgba(255,255,255,.2);
 backdrop-filter:blur(15px);
 border-radius:30px;
-
 }
-
-
-img{
-
-width:150px;
-height:150px;
+/* FOTO SLIDER */
+.slider{
+width:200px;
+height:200px;
+margin:auto;
+overflow:hidden;
 border-radius:50%;
-object-fit:cover;
 border:5px solid white;
-
+box-shadow:0 0 20px white;
 }
-
-
+.slide{
+width:100%;
+height:100%;
+object-fit:cover;
+display:none;
+opacity:0;
+transition:1s;
+}
+.slide.active{
+display:block;
+opacity:1;
+}
+/* PESAN */
 #pesan{
-
 font-size:22px;
 margin:20px;
 line-height:1.5;
-
 }
-
-
-
-/* RUNNING */
-
+/* RUNNING TEXT */
 .container{
-
-background:black;
+background:blue;
 height:60px;
 border-radius:30px;
 overflow:hidden;
 padding:10px;
-
 }
-
-
 #running{
-
-color:yellow;
+color:pink;
 font-size:30px;
 font-weight:bold;
 white-space:nowrap;
@@ -144,543 +108,255 @@ position:relative;
 text-shadow:0 0 15px yellow;
 
 }
-
-
-
 /* TEXT AREA */
-
 textarea{
-
 height:100px;
 resize:none;
 margin-top:20px;
-
 }
-
-
-
 /* TOMBOL TIDAK */
-
 #tidak{
-
 position:absolute;
 }
-
-
-
 /* HATI */
-
 .heart{
-
 position:absolute;
 font-size:25px;
 animation:jatuh 6s linear infinite;
-
 }
-
-
 @keyframes jatuh{
-
 from{
-
 transform:translateY(-100px);
-
 }
-
 to{
-
 transform:translateY(100vh);
-
 }
-
 }
-
-
 /* TERIMA */
-
 #terima{
-
 display:none;
 font-size:50px;
 color:white;
 text-align:center;
-
 }
-
 </style>
-
 </head>
-
-
 <body>
-
-    <!-- HALAMAN LOGIN -->
-
+<!-- LOGIN -->
 <div id="login">
-
-<h1>❤️ Untuk Kamu ❤️</h1>
-
-<p>Masukkan nama kamu</p>
-
+<h1>
+❤️ Untuk Kamu ❤️
+</h1>
+<p>
+Masukkan nama kamu
+</p>
 <br>
-
 <input id="nama" placeholder="Nama kamu">
-
 <br>
-
 <button onclick="mulai()">
 Buka Pesan 💌
 </button>
-
 </div>
-
-
-
-<!-- HALAMAN CINTA -->
-
+<!-- LOVE PAGE -->
 <div id="lovePage">
-
 <div class="card">
-
-
-<img src="foto1.JPG">
-
-
+<!-- FOTO BANYAK -->
+<div class="slider">
+<img class="slide" src="foto.JPG">
+<img class="slide" src="foto1.JPG">
+<img class="slide" src="foto2.JPG">
+<img class="slide" src="foto3.JPG">
+<img class="slide" src="foto4.JPG">
+</div>
 <h1 id="judul"></h1>
-
-
 <p id="pesan"></p>
-
-
-
 <div class="container">
-
 <div id="running">
 Sayang jangan lupo sarapan yo ❤️
 </div>
-
 </div>
-
-
-
-<textarea id="jawaban" 
-placeholder="Tulis jawaban kamu..."></textarea>
-
-
-
+<textarea id="jawaban"
+placeholder="Tulis jawaban kamu...">
+</textarea>
 <br>
-
-
 <button onclick="kirimWA()">
 Kirim Pesan 💌
 </button>
-
-
 <br>
-
-
 <button onclick="yes()">
 💖 Aku Mau 💖
 </button>
-
 <button onclick="musikControl()">
 🎵 Musik ON/OFF
 </button>
-
 <button id="tidak" onclick="no()">
 Tidak 😢
 </button>
-
-
-
 <p id="hasil"></p>
-
-
 </div>
-
 </div>
-
-
-
 <div id="terima">
-
 💖 Aku Senang Sekali 💖
-
 </div>
-
-
-
 <audio id="musik" loop>
-
 <source src="musik.mp3" type="audio/mp3">
-
 </audio>
-
-
-
-
-
 <script>
-
-
 let nama="";
-
-
-
 // NOMOR WHATSAPP TUJUAN
-
 let nomorWA="6281274365441";
-
-
-let musikAktif = true;
-
-
+let musikAktif=true;
+// ========================
+// KONTROL MUSIK
+// =========================
 function musikControl(){
-
 let musik=document.getElementById("musik");
-
-
 if(musikAktif){
-
 musik.pause();
-
 musikAktif=false;
-
 alert("Musik dimatikan 🔇");
-
-
-}else{
-
-
+}
+else{
 musik.play();
-
 musikAktif=true;
-
 alert("Musik dinyalakan 🎵");
-
-
 }
-
-
 }
-
-// MULAI
-
-
+// =========================
+// MULAI HALAMAN CINTA
+// =========================
 function mulai(){
-
-
 nama=document.getElementById("nama").value;
-
-
 if(nama==""){
-
 alert("Masukkan nama dulu ❤️");
-
 return;
-
 }
-
-
-
 let musik=document.getElementById("musik");
-
 musik.play();
-
-
-
 document.getElementById("login").style.display="none";
-
-
 document.getElementById("lovePage").style.display="block";
-
-
-
-let waktu = new Date();
-
-
+let waktu=new Date();
 document.getElementById("judul").innerHTML=
-
 "Untuk "+nama+" ❤️<br>"+
 "<small>Dibuka pada "+waktu.toLocaleString()+"</small>";
-
-
 document.getElementById("pesan").innerHTML=
-
-"sayang kamu hari ini lembur yo semangat terus sayangkuuu🥰<br><br>"+
-
-"sayanggg idk nangis lagi kan malem ni  "+
-
-" <br><br>"+
-
-"Love you sayangku❤️❤️💞 💖";
-
-
+"Sayang maaf yo buat kamu kemaren dk biso tdok ❤️"
++
+"<br><br>"+
+"Sayanggg jangan nangis lagi kan malam ini 😢"
++
+"<br><br>"+
+"aku bakal janji yang ini idk bakal terulang lagi sayang❤️❤️💞";
 }
-
-
-
-
+// =========================
+// FOTO SLIDE OTOMATIS
+// =========================
+let indexFoto=0;
+let foto=document.querySelectorAll(".slide");
+function slideFoto(){
+foto.forEach(function(gambar){
+gambar.classList.remove("active");
+});
+foto[indexFoto].classList.add("active");
+indexFoto++;
+if(indexFoto>=foto.length){
+indexFoto=0;
+}
+}
+slideFoto();
+setInterval(slideFoto,3000);
+// =========================
 // RUNNING TEXT
-
-
+// =========================
 let posisi=750;
-
 let text=document.getElementById("running");
-
-
 setInterval(()=>{
-
-
 posisi--;
-
-
 text.style.left=posisi+"px";
-
-
-
 if(posisi < -text.offsetWidth){
-
 posisi=750;
-
 }
-
-
 },10);
-
-
-
-
-
-
-// KIRIM PESAN WA
-
-
+// =========================
+// KIRIM WHATSAPP
+// =========================
 function kirimWA(){
-
-
-let jawaban=
-
-document.getElementById("jawaban").value;
-
-
-
+let jawaban=document.getElementById("jawaban").value;
 if(jawaban==""){
-
 alert("Tulis jawaban dulu ❤️");
-
 return;
-
 }
-
-
-
 let pesanWA=
-
 "Halo ❤️\n\n"+
-
 "Aku mendapat pesan dari "+nama+" ❤️\n\n"+
-
 "Isi pesan:\n"+
-
 jawaban;
-
-
-
 let url=
-
 "https://wa.me/"+nomorWA+
-
 "?text="+encodeURIComponent(pesanWA);
-
-
-
 window.open(url,"_blank");
-
-
 }
-
-
-
-
-
-
-
+// =========================
 // TOMBOL AKU MAU
-
-
+// =========================
 function yes(){
-
-
-
-let jawaban=
-
-document.getElementById("jawaban").value;
-
-
-
+let jawaban=document.getElementById("jawaban").value;
 let pesanWA=
-
 "Halo ❤️\n\n"+
-
 "Aku mendapat jawaban dari "+nama+" ❤️\n\n"+
-
-"Status: AKU MAU 💖\n\n"+
-
-"Pesan:\n"+
-
+"Status : AKU MAU 💖\n\n"+
+"Pesan :\n"+
 jawaban;
-
-
-
-
 let url=
-
 "https://wa.me/"+nomorWA+
-
 "?text="+encodeURIComponent(pesanWA);
-
-
-
 window.open(url,"_blank");
-
-
-
 document.getElementById("lovePage").style.display="none";
-
-
 document.getElementById("terima").style.display="block";
-
-
 confetti();
-
-
 }
-
-
-
-
-
-
+// =========================
 // TOMBOL TIDAK KABUR
-
-
+// =========================
 function no(){
-
-
 let tombol=document.getElementById("tidak");
-
-
 tombol.style.left=
-
 Math.random()*80+"%";
-
-
 tombol.style.top=
-
 Math.random()*80+"%";
-
-
 }
-
-
-
-
-
-
-
-// ANIMASI HATI
-
-
+// =========================
+// HATI JATUH
+// =========================
 setInterval(()=>{
-
-
-let h=document.createElement("div");
-
-
+let h=document.createElement("div")
 h.className="heart";
-
-
 h.innerHTML="❤️";
-
-
 h.style.left=Math.random()*100+"%";
-
-
 h.style.animationDuration=
-
 (3+Math.random()*5)+"s";
-
-
-
 document.body.appendChild(h);
-
-
-
 setTimeout(()=>{
-
 h.remove();
-
 },7000);
-
-
-
 },500);
-
-
-
-
-
-
-
-// KEMBANG API
-
-
+// =========================
+// CONFETTI
+// =========================
 function confetti(){
-
-
 for(let i=0;i<100;i++){
-
-
 let c=document.createElement("div");
-
-
 c.innerHTML="🎉";
-
-
 c.style.position="absolute";
-
-
 c.style.left=Math.random()*100+"%";
-
-
 c.style.top=Math.random()*100+"%";
-
-
 c.style.fontSize="30px";
-
-
 document.body.appendChild(c);
-
-
-
 setTimeout(()=>{
-
 c.remove();
-
 },3000);
-
-
 }
-
-
 }
-
-
-
 </script>
-
-
 </body>
-
 </html>
